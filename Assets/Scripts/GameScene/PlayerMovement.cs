@@ -7,7 +7,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private CircleCollider2D playercolldier;
-    private BoxCollider2D platformCollider;
     private PlatformMovement platform;
 
     private Rigidbody2D rb;
@@ -71,27 +70,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
         
-        
-        //isFlipped = !isFlipped;
-        //var nowpos = transform.position;
-
-
-        //if (isFlipped)
-        //{
-        //    isGrounded = true;
-        //    playercolldier.isTrigger = true;
-
-        //    //spriterenderer.flipY = true;
-        //    //Vector2 newpos = new Vector2(nowpos.x, nowpos.y - 4);
-        //    //transform.position = newpos;
-        //    rb.gravityScale = -1;
-        //}
-        //else
-        //{
-        //    Vector2 newpos = new Vector2(nowpos.x, nowpos.y + 4);
-        //    transform.position = newpos;
-        //    rb.gravityScale = gravPower;
-        //}
+  
 
     }
 
