@@ -24,6 +24,6 @@ public class UiManager : MonoBehaviour
 
     private void OnClickTopDownButton()
     {
-        player.Flip();
+        player.Filp();
     }
 }

@@ -32,15 +32,11 @@ public class PlatformSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time > timeSpawn)
-        {
-            SpawnPlatForm();
-        }
+        SpawnPlatForm();
     }
 
     private void SpawnPlatForm()
     {
-        timeSpawn = Time.time + Random.Range(timeSpawnMin, timeSpawnMax);
 
         platForms[currentIndex].SetActive(false);
 
