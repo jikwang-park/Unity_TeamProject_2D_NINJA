@@ -6,6 +6,16 @@ TagManager:
   tags:
   - Platform
   - Background
+  - Obsatacle
+  - Mace
+  - Land
+  - Hill
+  - Hill_Under
+  - Saw_small
+  - Saw_Big
+  - Triangle
+  - Coin_Y
+  - Coin_R
   layers:
   - Default
   - TransparentFX
