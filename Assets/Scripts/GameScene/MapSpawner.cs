@@ -1,38 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MapSpawner : MonoBehaviour
 {
-    private float spwanPoint;
-    private GameObject target;
+    //public GameObject[] mapPrefabs;
 
-    private void Awake()
-    {
-        
+    //private Vector2 currentEndPos = Vector2.zero;
 
-    }
+    //private Dictionary<string,List<GameObject>> mapDictionary = new Dictionary<string,List<GameObject>>();
+    
 
-    private void Start()
-    {
-        var background = GameObject.FindWithTag("Background");
-        target = background;
-        var targetRenderer = target.GetComponent<SpriteRenderer>();
+    //private void Start()
+    //{
+      
+    //}
 
-        float halftargetXsize = targetRenderer.size.x/2;
+    //private void RandomMapSpawner()
+    //{
 
-
-        var nowTargetPos = transform.position;
-        transform.position = new Vector2(nowTargetPos.x+ halftargetXsize, nowTargetPos.y);
-    }
-
-
-
-    private void Update()
-    {
-        
-    }
-
-
+    //}
 }
