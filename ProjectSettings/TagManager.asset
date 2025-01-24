@@ -15,6 +15,7 @@ TagManager:
   - Triangle
   - Coin_Y
   - Coin_R
+  - Triangle_Big
   layers:
   - Default
   - TransparentFX
