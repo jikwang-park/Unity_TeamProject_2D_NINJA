@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformMovement : MonoBehaviour
 {
     public float speed = 5f;
-    public BoxCollider2D collider;
+    private BoxCollider2D collider;
 
     private void Awake()
     {
