@@ -98,12 +98,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Dead()
     {
-       
-            
+        isAlive = false;
         enabled = false;
         spriterenderer.enabled = false;
         GamOver();
-
     }
 
 
@@ -156,6 +154,7 @@ public class PlayerMovement : MonoBehaviour
             currentJumpCount = maxJumpCount;
             
         }
+       
 
       
 
@@ -184,6 +183,11 @@ public class PlayerMovement : MonoBehaviour
         {
             playerHp--;
             Debug.Log($"{playerHp}");
+        }
+        if(collision.CompareTag("DeadZone"))
+        {
+            Debug.Log("deadzone");
+            Dead();
         }
     }
 
