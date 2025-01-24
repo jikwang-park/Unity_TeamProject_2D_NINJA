@@ -16,6 +16,7 @@ TagManager:
   - Triangle
   - Coin_Y
   - Coin_R
+  - DeadZone
   layers:
   - Default
   - TransparentFX
