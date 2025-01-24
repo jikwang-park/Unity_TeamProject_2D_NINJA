@@ -7,6 +7,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public enum PlayerStatus
+    {
+        Grounded,
+        Jumping,
+        Flip,
+
+    }
+
     private CapsuleCollider2D playercolldier;
     private PlatformMovement platform;
 
@@ -17,16 +25,19 @@ public class PlayerMovement : MonoBehaviour
 
     public float rayDistance = 10f;
 
-    public float jumpStr = 5f;
+    public float jumpStr = 20f;
+    public float gravScale = 2f;
     public float addGravStr = 3f;
     private int maxJumpCount = 2;
     private int currentJumpCount = 0;
+    
 
     private float gravPower;
+    public float playerHp = 10;
 
 
     private bool isGrounded = true;
-    private bool isAlive = true;
+    public bool isAlive = true;
 
     RaycastHit2D hitSpot;
 
@@ -37,8 +48,12 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isUpwardCollsion = false;
     private bool isDownwardCollsion = false;
-    private int flipCount = 0;
+
    
+
+    
+    public float enhancedGravityScale = 0.5f;
+
     //
 
     private void Awake()
@@ -58,6 +73,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if(playerHp <= 0)
+        {
+            isAlive = false;
+        }
+
         if (!isAlive)
         {
             Dead();
@@ -68,21 +88,9 @@ public class PlayerMovement : MonoBehaviour
             Jump();
             Debug.Log("Jump");
         }
-        //Vector2 rayStartPos = transform.position;
-        //Vector2 rayDirection = transform.up;
 
-
-        //LayerMask groundLayerMask = LayerMask.GetMask("Ground");
-
-        //hitSpot = Physics2D.Raycast(
-        //   rayStartPos, rayDirection, rayDistance, groundLayerMask);
-
-        //if (hitSpot.collider != null)
-        //{
-        //    Vector2 hitpoint = new Vector2(hitSpot.point.x, hitSpot.point.y);
-        //    transform.position = hitpoint;
-        //}
-
+       
+      
 
     }
 
@@ -90,23 +98,34 @@ public class PlayerMovement : MonoBehaviour
 
     private void Dead()
     {
+       
+            
         enabled = false;
+        spriterenderer.enabled = false;
+        GamOver();
+
     }
 
 
 
     public void Filp()
     {
+        
+
         isFlipped = !isFlipped;
-        if(isFlipped)
+        if(isGrounded)
         {
-            spriterenderer.flipY = true;
-            
+            if (isFlipped)
+            {
+                spriterenderer.flipY = true;
+
+            }
+            else
+            {
+                spriterenderer.flipY = false;
+            }
         }
-        else
-        {
-            spriterenderer.flipY = false;
-        }
+     
         //playercolldier.isTrigger = true;
     }
 
@@ -114,12 +133,17 @@ public class PlayerMovement : MonoBehaviour
     {
         
        
+        isGrounded = false;
+
         if (!spriterenderer.flipY
-            &&currentJumpCount != 0)
+            && currentJumpCount != 0)
         {
-            rb.velocity = Vector2.zero;
+            rb.velocity = Vector3.zero;
+            rb.gravityScale = gravScale;
             rb.AddForce(Vector2.up * jumpStr, ForceMode2D.Impulse);
+            
             currentJumpCount--;
+            
         }
 
     }
@@ -130,32 +154,46 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             currentJumpCount = maxJumpCount;
+            
         }
-   
-       
+
+      
+
+    }
+
+    public void GamOver()
+    {
+        Time.timeScale = 0f;
+        Debug.Log("게임오버");
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        //if (collision.collider.tag == "Platform")
-        //{
-        //    float ty = collision.collider.transform.position.y;
-        //    if (transform.position.y < ty)
-        //    {
-        //        Vector3 fixedPos = transform.position;
-        //        fixedPos.y = ty;
-        //        transform.position = fixedPos;
-        //    }
-        //}
+       
+   
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        //if (collision.collider.tag == "Platform")
-        //{
-        //    isFlipped = false;
-
-         
-
-        //}
+        
+     
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Triangle")
+        {
+            playerHp--;
+            Debug.Log($"{playerHp}");
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+    }
+
 }

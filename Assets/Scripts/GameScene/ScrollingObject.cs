@@ -9,7 +9,7 @@ public class ScrollingObject : MonoBehaviour
 {
     public float speed = 10f;
 
-    public GameObject prefabs;
+    public GameObject obj;
     public float backGroundWidth;
     public float cameraLeftPos;
 
@@ -18,9 +18,9 @@ public class ScrollingObject : MonoBehaviour
 
     private void Awake()
     {
-        
-        var ObjRender = prefabs.GetComponent<SpriteRenderer>();
-        backGroundWidth = ObjRender.size.x;
+
+        var SpriteRenderer = GetComponent<SpriteRenderer>();
+        backGroundWidth = SpriteRenderer.size.x;
 
         CreateBackgrounds();
 
@@ -38,12 +38,13 @@ public class ScrollingObject : MonoBehaviour
     {
         if(backgrounds.Count ==0)
         {
-            for (int i = 0; i < 2; i++)
-            {
-                var posX = transform.position.x + (i * backGroundWidth);
-                GameObject newBackground = Instantiate(prefabs, new Vector3(posX, 0, 0), Quaternion.identity);
-                backgrounds.Add(newBackground);
-            }
+            var pos = obj.transform.position;
+            pos.x = obj.transform.position.x + backGroundWidth;
+            obj.transform.position = pos;
+           
+            backgrounds.Add(gameObject);
+            backgrounds.Add(obj);
+
         }
   
 
@@ -59,6 +60,9 @@ public class ScrollingObject : MonoBehaviour
         for (int i = 0; i < backgrounds.Count; i++)
         {
             backgrounds[i].transform.Translate(Vector3.left * speed * Time.deltaTime);
+        }
+        for (int i = 0; i < backgrounds.Count; i++)
+        {
             if (backgrounds[i].transform.position.x + backGroundWidth / 2 < cameraLeftPos)
             {
                 Repositioning(i);
