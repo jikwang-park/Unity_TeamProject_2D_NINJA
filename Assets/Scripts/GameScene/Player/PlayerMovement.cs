@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
@@ -7,57 +8,42 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public enum PlayerStatus
-    {
-        Grounded,
-        Jumping,
-        Flip,
-
-    }
+    public GameObject target;
 
     private CapsuleCollider2D playercolldier;
     private PlatformMovement platform;
-
-    private Rigidbody2D rb;
     private SpriteRenderer spriterenderer;
+    private Rigidbody2D rb;
 
-    private float halfrectheight;
 
-    public float rayDistance = 10f;
+    public float gravScale = 2f;
+
 
     public float jumpStr = 20f;
-    public float gravScale = 2f;
-    public float addGravStr = 3f;
     private int maxJumpCount = 2;
     private int currentJumpCount = 0;
-    
+
+    public float playerHp = 10;
 
     private float gravPower;
-    public float playerHp = 10;
 
 
     private bool isGrounded = true;
     public bool isAlive = true;
-
-    RaycastHit2D hitSpot;
-
     private bool isFlipped = false;
 
     //트리거쪽 함수
-    private bool isCollisionExit = false;
 
-    private bool isUpwardCollsion = false;
-    private bool isDownwardCollsion = false;
 
-   
 
-    
+
+
     public float enhancedGravityScale = 0.5f;
 
     //
-
     private void Awake()
     {
+
         rb = GetComponent<Rigidbody2D>();
         playercolldier = GetComponent<CapsuleCollider2D>();
         spriterenderer = GetComponent<SpriteRenderer>();
@@ -65,72 +51,63 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Start()
     {
-        halfrectheight = spriterenderer.size.y / 2;
         gravPower = rb.gravityScale;
+        
     }
-
 
 
     private void Update()
     {
-        if(playerHp <= 0)
-        {
-            isAlive = false;
-        }
-
-        if (!isAlive)
+        if (playerHp <= 0)
         {
             Dead();
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
             Jump();
             Debug.Log("Jump");
         }
-
-       
-      
-
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            Flip();
+        }
+        
     }
-
-
 
     private void Dead()
     {
         isAlive = false;
         enabled = false;
         spriterenderer.enabled = false;
-        GamOver();
+        Time.timeScale = 0f;
+        Debug.Log("게임오버");
     }
 
-
-
-    public void Filp()
+    
+    public void Flip()
     {
         
-
-        isFlipped = !isFlipped;
-        if(isGrounded)
+     
+        if (!isGrounded)
         {
             if (isFlipped)
             {
-                spriterenderer.flipY = true;
-
+                var nowpos = transform.position;
+                
             }
             else
             {
-                spriterenderer.flipY = false;
+
             }
         }
-     
-        //playercolldier.isTrigger = true;
+        else
+        {
+
+        }
     }
 
     public void Jump()
     {
-        
-       
         isGrounded = false;
 
         if (!spriterenderer.flipY
@@ -139,9 +116,8 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.gravityScale = gravScale;
             rb.AddForce(Vector2.up * jumpStr, ForceMode2D.Impulse);
-            
+
             currentJumpCount--;
-            
         }
 
     }
@@ -152,39 +128,34 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             currentJumpCount = maxJumpCount;
-            
         }
-       
-
-      
-
     }
 
-    public void GamOver()
-    {
-        Time.timeScale = 0f;
-        Debug.Log("게임오버");
-    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
-       
-   
+
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        
-     
+
+
     }
+
+
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Triangle")
+        if (collision.tag == "Triangle")
         {
             playerHp--;
             Debug.Log($"{playerHp}");
         }
-        if(collision.CompareTag("DeadZone"))
+        if (collision.CompareTag("DeadZone"))
         {
             Debug.Log("deadzone");
             Dead();
@@ -197,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+
     }
 
 }

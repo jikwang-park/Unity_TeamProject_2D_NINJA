@@ -316,10 +316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f8e865ead47c04b870cada57feebfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 7
-  jumpStr: 9
+  target: {fileID: 0}
   gravScale: 2.1
-  addGravStr: 3
+  jumpStr: 9
   playerHp: 10
   isAlive: 1
   enhancedGravityScale: 3

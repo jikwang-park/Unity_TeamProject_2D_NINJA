@@ -2,21 +2,13 @@
 //using System.Collections.Generic;
 //using UnityEngine;
 
-//public enum MapTypes
-//{
-//    Long,
-//    Short
-//}
+
 
 //public class MapData
 //{
 //    public string Id { get; set; }
 
-//    public MapTypes Type { get; set; }
-
-//    public string Name { get; set; }
-
-//    public int RoundNum { get; set; }
+//    public int 
 
 //    public string PrefabsName { get; set; }
 
