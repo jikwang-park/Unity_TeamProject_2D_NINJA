@@ -17,6 +17,8 @@ TagManager:
   - Coin_Y
   - Coin_R
   - DeadZone
+  - ButtonPanel
+  - EndPos
   layers:
   - Default
   - TransparentFX
@@ -25,9 +27,9 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
+  - Obstacle
+  - Skill
+  - DeadZone
   - 
   - 
   - 
