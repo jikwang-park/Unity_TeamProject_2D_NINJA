@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
-using UnityEngine.Windows.Speech;
 
 public class MapRandomSpawner : MonoBehaviour
 {
@@ -44,11 +41,11 @@ public class MapRandomSpawner : MonoBehaviour
     }
     public void RandomMapSpawn()
     {
-        int rand = Random.Range(0,maps.Count);
+        int rand = Random.Range(0, maps.Count);
 
-        MapScripts newtile = Instantiate(maps[rand], lastGo.endPos.position,Quaternion.identity);
+        MapScripts newtile = Instantiate(maps[rand], lastGo.endPos.position, Quaternion.identity);
         newtile.spawner = this;
         lastGo = newtile;
     }
-    
+
 }

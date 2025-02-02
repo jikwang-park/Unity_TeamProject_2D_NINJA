@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class UsingGroundImpact : PlayerUseSkill
 {
@@ -15,7 +12,7 @@ public class UsingGroundImpact : PlayerUseSkill
     public override void ActiveSkill()
     {
         coillder.gameObject.SetActive(true);
-      
+
         StartCoroutine(BoxColliderCoolTime(3.5f));
     }
 
@@ -32,7 +29,7 @@ public class UsingGroundImpact : PlayerUseSkill
                 target.gameObject.SetActive(false);
             }
             yield return wait;
-            
+
         }
         coillder.gameObject.SetActive(false);
     }

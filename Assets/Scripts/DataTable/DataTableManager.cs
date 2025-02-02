@@ -17,10 +17,10 @@ public static class DataTableManager
 
 
 #else
-        var table = new StringTable();
+        var stringtable = new StringTable();
         var stringTableId = DataTableIds.String[(int)Variables.currentLang];
-        table.Load(stringTableId);
-        tables.Add(stringTableId, table);
+        stringtable.Load(stringTableId);
+        tables.Add(stringTableId, stringtable);
 #endif
 
 

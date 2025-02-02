@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 36859988}
   - component: {fileID: 36859990}
   - component: {fileID: 36859991}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SwordShiled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,9 +618,6 @@ MonoBehaviour:
   jumpStr: 9
   playerHp: 500
   isAlive: 1
-  isSmall: 0
-  isBig: 0
-  isNormal: 0
   OnSizeChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -686,7 +683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 232970775}
   - component: {fileID: 232970776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DeadZone
   m_TagString: DeadZone
   m_Icon: {fileID: 0}
@@ -1042,7 +1039,7 @@ GameObject:
   - component: {fileID: 369265260}
   - component: {fileID: 369265262}
   - component: {fileID: 369265261}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2788,7 +2785,7 @@ GameObject:
   - component: {fileID: 1781272941}
   - component: {fileID: 1781272942}
   - component: {fileID: 1781272943}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SwordPoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
