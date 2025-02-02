@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4733592275776360869}
   - component: {fileID: 3281124832095366486}
   - component: {fileID: 6229267779979341957}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle
-  m_TagString: Triangle
+  m_TagString: Obsatacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
