@@ -1,0 +1,4 @@
+Id,Amount,ItemPrefabId
+BigPotion,8,PotionBig
+MiddlePotion,5,PotionMiddle
+SmallPotion,2,PotionSmall

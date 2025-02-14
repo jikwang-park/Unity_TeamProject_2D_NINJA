@@ -12,7 +12,7 @@ public class PlayerSkillManager : MonoBehaviour
     }
     public PlayerUseSkill[] skills;
    
-   
+    
 
     public void SkillSwordShiled()
     {

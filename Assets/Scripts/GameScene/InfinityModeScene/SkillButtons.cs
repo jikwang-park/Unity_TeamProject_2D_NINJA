@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class SkillButtons : MonoBehaviour
 {
-    public PlayerMovement.CharacterState targetState;
+    public Player.CharacterState targetState;
 }

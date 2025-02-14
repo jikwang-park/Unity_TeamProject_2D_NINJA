@@ -4,12 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class StartUiManager : StartSceneGameManager
+public class StartUiManager : MonoBehaviour
 {
     public Button gameStartButton;
-    public Button gameLoadButton;
     public Button gameExitButton;
-
+    public Button CharSelectButton;
  
     private void Awake()
     {

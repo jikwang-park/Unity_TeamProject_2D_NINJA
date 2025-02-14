@@ -19,18 +19,27 @@ TagManager:
   - DeadZone
   - ButtonPanel
   - EndPos
+  - MonsterDeadSpot
+  - UiManager
+  - PlayerDeadUi
+  - SkillRange
+  - Potion_Big
+  - Potion_Small
+  - Potion_Middle
+  - Potion
+  - JumpButton
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Monster
   - Water
   - UI
   - Ground
   - Obstacle
   - Skill
   - DeadZone
-  - 
+  - UiOption
   - 
   - 
   - 

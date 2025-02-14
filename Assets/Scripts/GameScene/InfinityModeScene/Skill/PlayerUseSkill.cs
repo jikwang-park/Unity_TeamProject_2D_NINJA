@@ -1,7 +1,19 @@
+using Helios.GUI;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public abstract class PlayerUseSkill : MonoBehaviour
+public class PlayerUseSkill : MonoBehaviour
 {
+    public bool isSkillActive = false;
+    protected InfinityModeGameManager gameManager;
 
-    public abstract void ActiveSkill();
+    protected virtual void Start()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<InfinityModeGameManager>();
+
+    }
+    public virtual void ActiveSkill()
+    {
+
+    }
 }

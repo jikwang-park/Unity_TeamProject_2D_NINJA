@@ -12,21 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/MainTitleScene.unity
     guid: 450ad392abb3ccd4db46aa370fbf8cd8
   - enabled: 1
-    path: Assets/Scenes/StoryInGameScene.unity
-    guid: 53a259b2b0c54d0428bf341ade559265
+    path: Assets/Scenes/CharacterSelectScene.unity
+    guid: 86fdb2223f6788b43aee21582cb54b61
   - enabled: 1
     path: Assets/Scenes/InfinityInGameScene.unity
     guid: 43e9f74fb6e77264c96011ded9e71407
   - enabled: 1
-    path: Assets/Scenes/CharacterSelectScene.unity
-    guid: 86fdb2223f6788b43aee21582cb54b61
-  - enabled: 1
     path: Assets/Scenes/WeaponSelectScene.unity
     guid: 641a3d53e5a1e0a47aea9b14d1814deb
-  - enabled: 1
-    path: Assets/Scenes/InfinityModeSubScene.unity
-    guid: 047c74eeb2e22f840b74f0f9e8f0c9dd
-  - enabled: 1
-    path: Assets/Scenes/StoryModeSubScene.unity
-    guid: 7e87fbffacb16eb48b2226f724a772e7
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 080ecf7f36a3c3d4eaee1ebcef5285c9, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 6a5167032490713478173c589d74ac94, type: 2}

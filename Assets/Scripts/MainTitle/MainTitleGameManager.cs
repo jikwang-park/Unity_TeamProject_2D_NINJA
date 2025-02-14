@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,6 @@ public class MainTitleGameManager : MonoBehaviour
 {
     public bool CanContinue = true;
 
-    public GameObject firstSelected;
 
     public MainTitleUiManager uiManager;
 
@@ -17,10 +17,8 @@ public class MainTitleGameManager : MonoBehaviour
     {
         if(uiManager != null)
         {
-            uiManager.infinityModeButton.onClick.AddListener(() => OnClickInfinityMode());
-            uiManager.storyModeButton.onClick.AddListener(() => OnClickStoryMode());
-            uiManager.characterSelectButton.onClick.AddListener(() => OnClickCharacterSelect());
-            uiManager.weaponSelectButton.onClick.AddListener(() => OnClickWeaponSelect());
+            uiManager.gameStartButton.onClick.AddListener(() => OnClickGameStart());
+            uiManager.charSelectButton.onClick.AddListener(() => OnClickCharSelect());
         }
         else
         {
@@ -42,23 +40,17 @@ public class MainTitleGameManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnClickInfinityMode()
+    private void OnClickGameStart()
     {
+
         SceneManager.LoadScene((int)ScenesIds.InfinityModeScene);
     }
 
-    private void OnClickStoryMode()
-    {
-        SceneManager.LoadScene((int)ScenesIds.StoryModeScene);
-    }
 
-    private void OnClickCharacterSelect()
+    private void OnClickCharSelect()
     {
         SceneManager.LoadScene((int)ScenesIds.CharacterSelectScene);
     }
 
-    private void OnClickWeaponSelect()
-    {
-        SceneManager.LoadScene((int)ScenesIds.WeaponSelectScene);
-    }
+    
 }

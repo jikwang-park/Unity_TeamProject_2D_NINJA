@@ -14,6 +14,7 @@ public class CreditData
     public int MaxFunds { get; set; }
     public int MinFunds {  get; set; }
     public string Icon { get; set; }
+
     
 
     public Sprite IconSprite

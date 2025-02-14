@@ -9,30 +9,46 @@ public static class DataTableManager
 
     static DataTableManager()
     {
-        var table = new CreditTable();
-        table.Load(DataTableIds.Credit);
-        tables.Add(DataTableIds.Credit, table);
-
-#if UNITY_EDITOR
-
-
-#else
-        var stringtable = new StringTable();
-        var stringTableId = DataTableIds.String[(int)Variables.currentLang];
-        stringtable.Load(stringTableId);
-        tables.Add(stringTableId, stringtable);
-#endif
-
-
-    }
-
-    public static StringTable StringTable
-    {
-        get
+        //{
+        //    var table = new CreditTable();
+        //    table.Load(DataTableIds.Credit);
+        //    tables.Add(DataTableIds.Credit, table);
+        //}
         {
-            return Get<StringTable>(DataTableIds.String[(int)Variables.currentLang]);
+            var table = new MonsterDataTable();
+            table.Load(DataTableIds.Monster);
+            tables.Add(DataTableIds.Monster, table);
         }
+        {
+            var table = new PlayerStateDataTable();
+            table.Load(DataTableIds.PlayerState);
+            tables.Add(DataTableIds.PlayerState, table);
+        }
+        {
+            var table = new ItemDataTable();
+            table.Load(DataTableIds.Item);
+            tables.Add(DataTableIds.Item, table);
+        }
+//#if UNITY_EDITOR
+
+
+//#else
+//        //var stringtable = new StringTable();
+//        //var stringTableId = DataTableIds.String[(int)Variables.currentLang];
+//        //stringtable.Load(stringTableId);
+//        //tables.Add(stringTableId, stringtable);
+//#endif
+
+
     }
+
+    //public static StringTable StringTable
+    //{
+    //    get
+    //    {
+    //        return Get<StringTable>(DataTableIds.String[(int)Variables.currentLang]);
+    //    }
+    //}
 
     public static CreditTable CreditTable
     {
@@ -42,8 +58,29 @@ public static class DataTableManager
         }
     }
 
+    public static MonsterDataTable MonsterTable
+    {
+        get
+        {
+            return Get<MonsterDataTable>(DataTableIds.Monster);
+        }
+    }
 
+    public static ItemDataTable ItemTable
+    {
+        get
+        {
+            return Get<ItemDataTable>(DataTableIds.Item);
+        }
+    }
 
+    public static PlayerStateDataTable PlayerStateTable
+    {
+        get
+        {
+            return Get<PlayerStateDataTable>(DataTableIds.PlayerState);
+        }
+    }
 
     public static T Get<T>(string id) where T : DataTable
     {

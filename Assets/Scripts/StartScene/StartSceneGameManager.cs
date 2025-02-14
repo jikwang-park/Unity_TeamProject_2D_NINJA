@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,22 +16,25 @@ public class StartSceneGameManager : MonoBehaviour
     private void Start()
     {
         uiManager.gameStartButton.onClick.AddListener(() => OnClickStartButton());
-        uiManager.gameLoadButton.onClick.AddListener(() => OnClickLoadButton());
         uiManager.gameExitButton.onClick.AddListener(() => OnClickExitButton());
+        uiManager.CharSelectButton.onClick.AddListener(() => OnClickCharSelect());
+    }
+
+    private void OnClickCharSelect()
+    {
+        SceneManager.LoadScene((int)ScenesIds.CharacterSelectScene);
     }
 
     private void OnClickStartButton()
     {
-        SceneManager.LoadScene((int)ScenesIds.MainTitleScene);
+        SceneManager.LoadScene((int)ScenesIds.InfinityModeScene);
     }
+
+
 
     private void OnClickExitButton()
     {
-
-    }
-
-    private void OnClickLoadButton()
-    {
+        Application.Quit();
 
     }
 }

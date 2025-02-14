@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainTitleUiManager : MainTitleGameManager
+public class MainTitleUiManager : MonoBehaviour
 {
-    public Button infinityModeButton;
-    public Button storyModeButton;
+    public Button gameStartButton;
 
-    public Button characterSelectButton;
-    public Button weaponSelectButton;
+    public Button charSelectButton;
+    
 
 
     private void Awake()

@@ -1,0 +1,3 @@
+Id,MaxHp,AttackDamage,MonsterPrefabId
+Bat,20,10,BatPrefab
+FireFly,35,22,FireSprite

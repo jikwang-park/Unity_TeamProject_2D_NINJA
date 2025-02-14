@@ -13,17 +13,37 @@ public class ScrollingBackGround : MonoBehaviour
     public float backGroundWidth;
     public float cameraLeftPos;
 
+    public float backGroundChangeTimer = 15f;
+    public float CurrnetTime;
+
     private List<GameObject> backgrounds = new List<GameObject>();
 
-
+    
     private void Awake()
     {
-        var SpriteRenderer = GetComponent<SpriteRenderer>();
+        //¿¹ºñ¿ë
+        var SpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         backGroundWidth = SpriteRenderer.size.x;
 
         CreateBackgrounds();
 
     }
+
+
+    //private void BackgroundSpirteChange()
+    //{
+    //    CurrnetTime += Time.deltaTime;
+    //    if(CurrnetTime >= backGroundChangeTimer)
+    //    {
+    //        ChangeBackground();
+    //    }
+        
+    //}
+
+    //private void ChangeBackground()
+    //{
+
+    //}
 
     private void Start()
     {

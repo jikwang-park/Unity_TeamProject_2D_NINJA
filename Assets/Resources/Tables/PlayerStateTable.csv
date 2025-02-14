@@ -1,0 +1,4 @@
+Id,MaxHp,AttackDamage,Experience,PlayerPrefabId
+Player1,20,8,3,PlayerRed
+Player2,15,10,2,PlayerGreen
+Player3,30,5,3,PlayerYellow

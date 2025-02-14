@@ -6,10 +6,19 @@ public enum ScenesIds
     none = -1,
     StartScene,
     MainTitleScene,
-    StoryModeScene,
-    InfinityModeScene,
     CharacterSelectScene,
+    InfinityModeScene,
     WeaponSelectScene,
+    StoryModeScene,
+    
+    
+}
+
+public enum Monsters
+{
+    Bat,
+    FireFly,
+    Count,
 }
 
 public enum SceneCategory
@@ -31,6 +40,27 @@ public enum Languages
     English,
 }
 
+public enum PotionSize
+{
+    BigPotion,
+    MiddlePotion,
+    SmallPotion,
+    Count,
+}
+
+public enum SoundsId
+{
+    ButtonClick,
+    Gameover,
+    Jumpsound,
+    PlayerHit,
+    SkillExplosion,
+    SkillShiled,
+    SkillSwordPoll,
+}
+
+
+
 public static class DataTableIds
 {
     public static readonly string[] String =
@@ -40,7 +70,9 @@ public static class DataTableIds
     };
 
     public static readonly string Credit = "CreditTable";
-
+    public static readonly string Monster = "MonsterTable";
+    public static readonly string PlayerState = "PlayerStateTable";
+    public static readonly string Item = "ItemTable";
 
 }
 
